@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'dollarMonitor.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ['DB_NAME_DOLLAR'],
+        'USER': os.environ['DB_USER_DOLLAR'],
+        'PASSWORD': os.environ['DB_PW_DOLLAR'],
+        'HOST': os.environ['DB_HOST_DOLLAR'],
+        'PORT': os.environ['DB_PORT_DOLLAR'],
     }
 }
 
@@ -107,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Chile/Continental'
 
 USE_I18N = True
 
