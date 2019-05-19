@@ -9,8 +9,11 @@ from django.db import models
 
 
 class DollarClp(models.Model):
-    dollar_price = models.FloatField()
+    price = models.FloatField()
+    date = models.DateField(unique=True)
+    price_difference = models.FloatField()
     date_update = models.DateTimeField(blank=True, null=True)
+    week_value = models.BooleanField(blank=True, null=True)
 
     class Meta:
         managed = False
