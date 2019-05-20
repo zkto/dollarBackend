@@ -13,9 +13,36 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from dollar.models import DollarClp
+from rest_framework import routers, serializers, viewsets
+
+
+"""
+# Serializers define the API representation.
+class DollarClpSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = DollarClp
+        fields = ('price', 'date', 'price_difference', 'date_update', 'week_value')
+
+
+# ViewSets define the view behavior.
+class DollarViewSet(viewsets.ModelViewSet):
+    queryset = DollarClp.objects.all()
+    serializer_class = DollarClpSerializer
+
+
+# Routers provide an easy way of automatically determining the URL conf.
+router = routers.DefaultRouter()
+router.register(r'dollars', DollarViewSet)
+
+"""
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # url(r'^', include(router.urls)),
+    url(r'^', include('dollar.urls')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

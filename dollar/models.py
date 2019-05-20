@@ -18,4 +18,3 @@ class DollarClp(models.Model):
     class Meta:
         managed = False
         db_table = 'dollar_clp'
-

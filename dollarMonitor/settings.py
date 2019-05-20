@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dollar.apps.DollarConfig',
+    'django_filters',
+    'rest_framework_filters',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -55,8 +58,7 @@ ROOT_URLCONF = 'dollarMonitor.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,6 +88,16 @@ DATABASES = {
     }
 }
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DEFAULT_FILTER_BACKENDS': (
+        'rest_framework_filters.backends.RestFrameworkFilterBackend',
+    ),
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
