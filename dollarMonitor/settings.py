@@ -79,12 +79,8 @@ WSGI_APPLICATION = 'dollarMonitor.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['DB_NAME_DOLLAR'],
-        'USER': os.environ['DB_USER_DOLLAR'],
-        'PASSWORD': os.environ['DB_PW_DOLLAR'],
-        'HOST': os.environ['DB_HOST_DOLLAR'],
-        'PORT': os.environ['DB_PORT_DOLLAR'],
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db_dollar',
     }
 }
 

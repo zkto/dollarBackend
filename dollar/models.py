@@ -13,8 +13,7 @@ class DollarClp(models.Model):
     date = models.DateField(unique=True)
     price_difference = models.FloatField()
     date_update = models.DateTimeField(blank=True, null=True)
-    week_value = models.BooleanField(blank=True, null=True)
+    business_day = models.BooleanField(blank=True, null=True)
 
     class Meta:
-        managed = False
         db_table = 'dollar_clp'
