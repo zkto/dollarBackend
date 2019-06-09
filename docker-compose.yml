@@ -1,0 +1,13 @@
+version: '2'
+services:
+  backend:
+    hostname: python
+    container_name: dollar_backend
+    working_dir: /www/
+    build: backend
+    ports:
+      - "8000:8000"
+    tty: true
+    volumes:
+      - ./backend:/www/
+    command: python manage.py runserver 0.0.0.0:8000
