@@ -10,4 +10,6 @@ services:
     tty: true
     volumes:
       - ./backend:/www/
-    command: python manage.py runserver 0.0.0.0:8000
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+    command: bash -c "python manage.py runserver 0.0.0.0:8000 && service cron start"
