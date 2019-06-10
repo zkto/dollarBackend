@@ -11,7 +11,7 @@ To raise the backend docker
 
 
 ```bash
-docker-compose build
+docker-compose up
 ```
 
 
